@@ -2,6 +2,10 @@ import { Router } from 'express'
 const router = Router()
 
 import {
+  verifyToken
+} from '../utils/utils.js'
+
+import {
   createCustomer,
   getCustomers,
   getCustomerById,
@@ -9,13 +13,13 @@ import {
   deleteCustomerById
 } from '../controllers/customer.controller.js'
 
-router.get('/', getCustomers)
-router.get('/:userId', getCustomerById)
+router.get('/', verifyToken, getCustomers)
+router.get('/:userId', verifyToken, getCustomerById)
 
-router.post('/', createCustomer)
+router.post('/', verifyToken, createCustomer)
 
-router.put('/:userId', updateCustomerById)
+router.put('/:userId', verifyToken, updateCustomerById)
 
-router.delete('/:userId', deleteCustomerById)
+router.delete('/:userId', verifyToken, deleteCustomerById)
 
 export default router
