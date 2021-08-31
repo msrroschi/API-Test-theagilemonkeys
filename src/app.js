@@ -3,9 +3,12 @@ import morgan from 'morgan'
 import cors from 'cors'
 import helmet from 'helmet'
 
+import { createAdmin } from './utils/initialSetUp.js'
+
 import api from './routes/router.js'
 
 const app = express()
+createAdmin()
 
 app.set('port', process.env.PORT || 3000)
 
