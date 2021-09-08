@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema({
           v
         )
       },
-      message: (password) => `${password.value} is not a valid password!`,
+      message: (password) => `${password.value} is not a valid password, it should have at minimum eight characters, at least one upper case English letter, one lower case English letter, one number and one special character!`,
     },
   },
   role: {
@@ -46,7 +46,6 @@ const userSchema = new mongoose.Schema({
 })
 
 userSchema.pre('save', function (next) {
-  console.log('hola')
   try {
     const user = this
     if (!user.isModified('password')) return next()

@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt'
+import fs from 'fs'
 
 import User from '../models/user.model.js'
 
@@ -10,7 +10,7 @@ export const createAdmin = async (req, res) => {
       await User.create({
         name: 'admin',
         email: 'admin@admin.admin',
-        password: await bcrypt.hashSync('123', 10),
+        password: 'Admin-123',
         role: 'admin'
       })
       console.info('Admin created')
@@ -20,3 +20,22 @@ export const createAdmin = async (req, res) => {
   }
 }
 
+export const createFolders = () => {
+  try {
+    if (fs.existsSync('./public/customers')) {
+      return
+    } else {
+      fs.mkdir('./public', (err) => {
+        if (err) console.error(err)
+        else {
+          fs.mkdir('./public/customers', (err) => {
+            if (err) console.error(err)
+            console.info('📁 Folder structure prepared!!')
+          })
+        }
+      })
+    }
+  } catch (error) {
+    console.error(error)
+  }
+}

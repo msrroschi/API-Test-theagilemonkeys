@@ -57,13 +57,14 @@ List of the endpoints currently available in the API.
 
 ### Customers Endpoints
 
-| METHOD |          ENDPOINT           | TOKEN | ROLE |     BODY / PARAMS     |   CONTROLLER    |           RETURN           |
-| :----: | :-------------------------: | :---: | :--: | :-------------------: | :-------------: | :------------------------: |
-|  POST  |       /api/customers        |  YES  |  NO  |    customerSchema     | createCustomer  | created customer (object)  |
-|  GET   |       /api/customers        |  YES  |  NO  |         none          |  getCustomers   |   all customers (array)    |
-|  GET   | /api/customers /:customerId |  YES  |  NO  | customerId (ObjectId) | getCustomerById | specific customer (object) |
-|  PUT   | /api/customers /:customerId |  YES  |  NO  | customerId (ObjectId) | updateCustomer  | updated customer (object)  |
-| DELETE | /api/customers /:customerId |  YES  |  NO  | customerId (ObjectId) | deleteCustomer  |    confirmation message    |
+| METHOD |            ENDPOINT            | TOKEN | ROLE |     BODY / PARAMS     |    CONTROLLER    |           RETURN           |
+| :----: | :----------------------------: | :---: | :--: | :-------------------: | :--------------: | :------------------------: |
+|  POST  |         /api/customers         |  YES  |  NO  |    customerSchema     |  createCustomer  | created customer (object)  |
+|  GET   |         /api/customers         |  YES  |  NO  |         none          |   getCustomers   |   all customers (array)    |
+|  GET   |  /api/customers /:customerId   |  YES  |  NO  | customerId (ObjectId) | getCustomerById  | specific customer (object) |
+|  GET   | /api/customers /:photoFileName |  NO   |  NO  |  photoFile (String)   | getCustomerPhoto |     photo file (file)      |
+|  PUT   |  /api/customers /:customerId   |  YES  |  NO  | customerId (ObjectId) |  updateCustomer  | updated customer (object)  |
+| DELETE |  /api/customers /:customerId   |  YES  |  NO  | customerId (ObjectId) |  deleteCustomer  |    confirmation message    |
 
 <br />
 
@@ -71,7 +72,7 @@ List of the endpoints currently available in the API.
 
 ## Roadmap
 
-I'm workin right now on file uploads for the customer photos.
+I'm workin right now on testing.
 <br />
 
 <!-- LICENSE -->
@@ -102,3 +103,4 @@ Project Link: [https://github.com/msrroschi/API-Test-theagilemonkeys](https://gi
 - [cors](https://www.npmjs.com/package/cors)
 - [nodemon](https://www.npmjs.com/package/nodemon)
 - [helmet](https://www.npmjs.com/package/helmet)
+- [multer](https://www.npmjs.com/package/multer)
